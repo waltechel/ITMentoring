@@ -48,4 +48,9 @@ public class UserService {
 		oldUser.setUsername(user.getUsername());
 	}
 
+	public void deleteById(Long id) {
+		repository.deleteById(id + "");
+		
+	}
+
 }
