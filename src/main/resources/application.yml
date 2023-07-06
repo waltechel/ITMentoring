@@ -20,7 +20,7 @@ spring:
     # 데이터 소스 설정
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3307/mysql?useSSL=false
+    url: jdbc:mysql://localhost:3307/mysql?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: root
 
@@ -32,7 +32,7 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-      ddl-auto: update
+      ddl-auto: create
       use-new-id-generator-mappings: false
     properties:
       hibernate.format_sql: true
