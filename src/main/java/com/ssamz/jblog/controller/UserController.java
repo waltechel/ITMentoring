@@ -26,7 +26,7 @@ public class UserController {
 	private final UserService userService;
 	
 	@GetMapping("/user/get/{id}")
-	public @ResponseBody UserEntity getUser(@PathVariable Long id) {
+	public @ResponseBody UserEntity getUser(@PathVariable String id) {
 		// 특정 id 에 해당하는 User 객체 리턴
 		UserEntity findUser = userService.findById(id).orElseThrow(new Supplier<JBlogException>() {
 			@Override
@@ -37,7 +37,7 @@ public class UserController {
 		return findUser;
 	}
 	
-	@PutMapping("/user")
+	@PostMapping("/user")
 	public @ResponseBody String insertUser(@RequestBody UserEntity user) {
 		// 특정 id 에 해당하는 User 객체 리턴
 		userService.save(user);
@@ -58,7 +58,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/user/get/{id}")
-	public @ResponseBody String deleteUser(@PathVariable Long id) {
+	public @ResponseBody String deleteUser(@PathVariable String id) {
 		userService.deleteById(id);
 		return "회원 삭제 성공";
 	}

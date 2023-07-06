@@ -33,8 +33,8 @@ public class UserService {
 		
 	}
 
-	public Optional<UserEntity> findById(long id) {
-		return repository.findById(id + "");
+	public Optional<UserEntity> findById(String string) {
+		return repository.findById(string);
 	}
 
 	public UserEntity save(UserEntity findUser) {
@@ -42,14 +42,14 @@ public class UserService {
 	}
 
 	public void updateUser(UserEntity findUser, UserEntity user) {
-		UserEntity oldUser = repository.findById(findUser.getId() + "").get();
+		UserEntity oldUser = repository.findById(findUser.getId()).get();
 		oldUser.setEmail(user.getEmail());
 		oldUser.setPassword(user.getPassword());
 		oldUser.setUsername(user.getUsername());
 	}
 
-	public void deleteById(Long id) {
-		repository.deleteById(id + "");
+	public void deleteById(String id) {
+		repository.deleteById(id);
 		
 	}
 
