@@ -23,7 +23,7 @@ public class UserEntity {
   // 1부터 시작하여 자동으로 1씩 증가하도록 증가 전략 설정
   @GeneratedValue(strategy = GenerationType.TABLE)
   @Column(name = "user_id")
-  private String id;
+  private Long id;
 
   @Column(nullable = false, length = 50, unique = true, name = "user_name")
   private String username; // 아이디

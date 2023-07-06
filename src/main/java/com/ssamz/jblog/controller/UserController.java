@@ -47,7 +47,7 @@ public class UserController {
 	@PutMapping("/user")
 	public @ResponseBody String updateUser(@RequestBody UserEntity user) {
 		// 특정 id 에 해당하는 User 객체 리턴
-		UserEntity findUser = userService.findById(user.getId()).orElseThrow(new Supplier<JBlogException>() {
+		UserEntity findUser = userService.findById(user.getId() + "").orElseThrow(new Supplier<JBlogException>() {
 			@Override
 			public JBlogException get() {
 				return new JBlogException(user.getId() + "를 가진 회원이 존재하지 않습니다");
@@ -58,8 +58,8 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/user/get/{id}")
-	public @ResponseBody String deleteUser(@PathVariable String id) {
-		userService.deleteById(id);
+	public @ResponseBody String deleteUser(@PathVariable long id) {
+		userService.deleteById(id + "");
 		return "회원 삭제 성공";
 	}
 

@@ -42,7 +42,7 @@ public class UserService {
 	}
 
 	public void updateUser(UserEntity findUser, UserEntity user) {
-		UserEntity oldUser = repository.findById(findUser.getId()).get();
+		UserEntity oldUser = repository.findById(findUser.getId() + "").get();
 		oldUser.setEmail(user.getEmail());
 		oldUser.setPassword(user.getPassword());
 		oldUser.setUsername(user.getUsername());
