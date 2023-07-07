@@ -14,11 +14,11 @@ public class UserService {
 
 	private final UserRepository repository;
 
-	// Java Stream, Lambda Expression 
-	// 함수형 프로그래밍 : f(x) (x -> y) 적 소스코드 
+	// Java Stream, Lambda Expression
+	// 함수형 프로그래밍 : f(x) (x -> y) 적 소스코드
 	public UserEntity findById(String id) {
 		return repository.findById(Long.parseLong(id)).orElseThrow(() -> {
-			return new JBlogException(id + "를 가진 회원이 존재하지 않습니다");	
+			return new JBlogException(id + "를 가진 회원이 존재하지 않습니다");
 		});
 	}
 
@@ -35,5 +35,12 @@ public class UserService {
 
 	public UserEntity insertUser(UserEntity user) {
 		return repository.save(user);
+	}
+
+	public void deleteById(String id) {
+		UserEntity user = repository.findById(Long.parseLong(id)).orElseThrow(() -> {
+			return new JBlogException(id + "를 가진 회원이 존재하지 않습니다");
+		});
+		repository.delete(user);
 	}
 }
