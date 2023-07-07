@@ -54,21 +54,27 @@
 		<groupId>javax.servlet</groupId>
 		<artifactId>jstl</artifactId>
 	</dependency>
+	<!-- https://mvnrepository.com/artifact/taglibs/standard -->
+	<dependency>
+	    <groupId>taglibs</groupId>
+	    <artifactId>standard</artifactId>
+	    <version>1.1.2</version>
+	</dependency>
 
-	<!-- JSP를 Servlet으로 변환하는 라이브러리 -->
+		<!-- JSP를 Servlet으로 변환하는 라이브러리 -->
 	<dependency>
 		<groupId>org.apache.tomcat.embed</groupId>
 		<artifactId>tomcat-embed-jasper</artifactId>
 	</dependency>
 
-	<!-- Bootstrap 라이브러리 -->
+		<!-- Bootstrap 라이브러리 -->
 	<dependency>
 		<groupId>org.webjars</groupId>
 		<artifactId>bootstrap</artifactId>
 		<version>4.5.3</version>
 	</dependency>
 
-	<!-- jQuery 라이브러리 -->
+		<!-- jQuery 라이브러리 -->
 	<dependency>
 		<groupId>org.webjars.bower</groupId>
 		<artifactId>jquery</artifactId>
