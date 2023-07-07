@@ -1,6 +1,7 @@
 package com.ssamz.jblog.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,6 +41,13 @@ public class UserController {
 	public @ResponseBody UserEntity insertUser(@RequestBody UserEntity user) {
 		UserEntity ret = userService.insertUser(user);
 		return ret;
+	}
+	
+	// http://localhost:8080/user/delete/1
+	@DeleteMapping("/user/delete/{id}")
+	public @ResponseBody String deleteUser(@PathVariable String id) {
+		userService.deleteById(id);
+		return "";
 	}
 
 	@GetMapping("/auth/insertUser") 

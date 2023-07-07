@@ -36,4 +36,11 @@ public class UserService {
 	public UserEntity insertUser(UserEntity user) {
 		return repository.save(user);
 	}
+
+	public void deleteById(String id) {
+		UserEntity user = repository.findById(Long.parseLong(id)).orElseThrow(() -> {
+			return new JBlogException(Long.parseLong(id) + "를 가진 회원이 존재하지 않습니다");
+		});
+		repository.delete(user);
+	}
 }
