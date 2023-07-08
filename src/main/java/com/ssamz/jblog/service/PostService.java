@@ -26,4 +26,7 @@ public class PostService {
 		return postRepository.findAll();
 	}
 
+	public PostEntity getPost(long id) {
+		return postRepository.findById(id).get();
+	}
 }
