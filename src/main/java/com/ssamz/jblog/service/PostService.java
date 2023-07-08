@@ -29,4 +29,11 @@ public class PostService {
 	public PostEntity getPost(long id) {
 		return postRepository.findById(id).get();
 	}
+
+	public void updatePost(PostEntity post) {
+		PostEntity findPost = postRepository.findById(post.getId()).get();
+		findPost.setTitle(post.getTitle());
+		findPost.setContent(post.getContent());
+		postRepository.save(findPost);
+	}
 }

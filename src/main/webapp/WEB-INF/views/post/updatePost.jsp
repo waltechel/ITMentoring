@@ -15,6 +15,7 @@
 	</div>
 </form>
 
+<button class="btn btn-secondary" onclick="history.back()">돌아가기</button>
 <button id="btn-update" class="btn btn-primary">포스트 수정</button>
 
 </div>
