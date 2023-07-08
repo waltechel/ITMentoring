@@ -45,7 +45,7 @@ public class UserService {
 	}
 
 	public UserEntity selectUserByUserName(String username) {
-		UserEntity user = repository.findByUsername(username).orElseThrow(() -> {
+		UserEntity user = repository.findByUsername(username).orElseGet(() -> {
 			return null;
 		});
 		return user;
