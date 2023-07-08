@@ -43,4 +43,12 @@ public class UserService {
 		});
 		repository.delete(user);
 	}
+
+	public UserEntity selectUserByUserName(String username) {
+		UserEntity user = repository.findByUsername(username).orElseThrow(() -> {
+			return null;
+		});
+		return user;
+	}
+
 }
