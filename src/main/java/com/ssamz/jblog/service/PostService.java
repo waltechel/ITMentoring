@@ -1,5 +1,7 @@
 package com.ssamz.jblog.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.ssamz.jblog.entity.PostEntity;
@@ -17,6 +19,11 @@ public class PostService {
 		post.setCnt(0);
 
 		postRepository.save(post);
+	}
+
+	// 조회 내용 수정
+	public List<PostEntity> getPostList() {
+		return postRepository.findAll();
 	}
 
 }

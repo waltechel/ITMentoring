@@ -3,12 +3,15 @@
 <%@ include file="layout/header.jsp"%>
 
 <div class="container">
-	<div class="card m-2">
-		<div class="card-body">
-			<h4 class="card-title">포스트 제목</h4>
-			<a href="#" class="btn btn-primary">셍세보기</a>
-		</div>
-	</div>
+
+	<c:forEach var="post" items="${ postList }">
+		<div class="card m-2">
+			<div class="card-body">
+				<h4 class="card-title">${post.title }</h4>
+				<a href="/post/${post.id }" class="btn btn-primary">상세보기</a>
+			</div>
+		</div> 
+	</c:forEach>
 
 </div>
 

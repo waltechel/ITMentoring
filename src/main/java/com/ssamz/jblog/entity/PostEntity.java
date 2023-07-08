@@ -3,6 +3,7 @@ package com.ssamz.jblog.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +37,7 @@ public class PostEntity {
 	private String content; 
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "user_id", referencedColumnName = "user_id") 
+	@JoinColumn(name = "user_id")
 	private UserEntity user; 
 	
 	@Column(name = "post_cnt")
