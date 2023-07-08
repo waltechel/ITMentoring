@@ -19,24 +19,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
+@Entity(name = "POSTS")
 public class PostEntity {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "post_id")
+	private Long id;
 	
-	@Column(nullable = false, length = 100)
+	@Column(nullable = false, length = 100, name = "post_title")
 	private String title; 
 	
 	// 대용량 데이터 저장을 위해 @Lob로 설정함
 	// 나중에 summernote를 적용하면 많은 <html> 태그들이 포함된다.
 	@Lob 
+	@Column(name = "post_content", columnDefinition = "LONGTEXT")
 	private String content; 
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "userid")
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id") 
 	private UserEntity user; 
 	
+	@Column(name = "post_cnt")
 	private int cnt; 
 
 }
