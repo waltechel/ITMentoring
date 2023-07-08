@@ -36,4 +36,9 @@ public class PostService {
 		findPost.setContent(post.getContent());
 		postRepository.save(findPost);
 	}
+
+	public void deletePost(long id) {
+		postRepository.deleteById(id);
+	}
+
 }
